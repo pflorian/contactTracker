@@ -1,0 +1,800 @@
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLawyers (20150306222847)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "lawyers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "title" varchar(255), "comments" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150306222847"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 16:40:32 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 32ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 16:40:45 -0600
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.7ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 1684ms (Views: 1681.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 16:40:47 -0600
+
+
+Started GET "/lawyers/new" for 127.0.0.1 at 2015-03-06 16:40:50 -0600
+Processing by LawyersController#new as HTML
+  Rendered lawyers/_form.html.erb (28.8ms)
+  Rendered lawyers/new.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/lawyers" for 127.0.0.1 at 2015-03-06 16:41:08 -0600
+Processing by LawyersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "lawyer"=>{"first_name"=>"Jim Bob", "last_name"=>"Jones", "title"=>"Partner", "comments"=>"likes a tipple "}, "commit"=>"Create Lawyer"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["comments", "likes a tipple "], ["created_at", Fri, 06 Mar 2015 22:41:08 UTC +00:00], ["first_name", "Jim Bob"], ["last_name", "Jones"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 22:41:08 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/lawyers/1
+Completed 302 Found in 12ms (ActiveRecord: 8.1ms)
+
+
+Started GET "/lawyers/1" for 127.0.0.1 at 2015-03-06 16:41:08 -0600
+Processing by LawyersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mLawyer Load (0.3ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered lawyers/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 16:41:08 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 16:41:08 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 16:41:08 -0600
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 16:41:11 -0600
+Processing by LawyersController#index as HTML
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers"[0m
+  Rendered lawyers/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lawyers/new" for 127.0.0.1 at 2015-03-06 16:41:13 -0600
+Processing by LawyersController#new as HTML
+  Rendered lawyers/_form.html.erb (24.8ms)
+  Rendered lawyers/new.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/lawyers" for 127.0.0.1 at 2015-03-06 16:41:38 -0600
+Processing by LawyersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "lawyer"=>{"first_name"=>"Jane", "last_name"=>"Dondori", "title"=>"Partner", "comments"=>"Greek like a geek"}, "commit"=>"Create Lawyer"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["comments", "Greek like a geek"], ["created_at", Fri, 06 Mar 2015 22:41:38 UTC +00:00], ["first_name", "Jane"], ["last_name", "Dondori"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 22:41:38 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/lawyers/2
+Completed 302 Found in 6ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/lawyers/2" for 127.0.0.1 at 2015-03-06 16:41:38 -0600
+Processing by LawyersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered lawyers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 16:41:38 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 16:41:38 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 16:41:38 -0600
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 16:41:40 -0600
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lawyers/new" for 127.0.0.1 at 2015-03-06 16:41:47 -0600
+Processing by LawyersController#new as HTML
+  Rendered lawyers/_form.html.erb (2.6ms)
+  Rendered lawyers/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 12ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/lawyers" for 127.0.0.1 at 2015-03-06 16:42:01 -0600
+Processing by LawyersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "lawyer"=>{"first_name"=>"Adam", "last_name"=>"West", "title"=>"Batman", "comments"=>"Lorem ipsum dolor sit amet, debitis scaevola disputando no pro. In pri consul propriae, mel aeque essent in. Eam ut elit interesset. Ne qui persius tractatos, per an quis agam nobis. Docendi necessitatibus te cum, eam ne clita reprehendunt, ferri deleniti tractatos cum eu. Eius etiam tritani vim ex, pri no legere definitionem. An est libris denique, rebum mucius ridens cu sit. Illud facilisis dissentias et vel. Mea ne graeci intellegebat, essent aperiam deseruisse an quo. Vix ne oratio officiis postulant.\r\n"}, "commit"=>"Create Lawyer"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["comments", "Lorem ipsum dolor sit amet, debitis scaevola disputando no pro. In pri consul propriae, mel aeque essent in. Eam ut elit interesset. Ne qui persius tractatos, per an quis agam nobis. Docendi necessitatibus te cum, eam ne clita reprehendunt, ferri deleniti tractatos cum eu. Eius etiam tritani vim ex, pri no legere definitionem. An est libris denique, rebum mucius ridens cu sit. Illud facilisis dissentias et vel. Mea ne graeci intellegebat, essent aperiam deseruisse an quo. Vix ne oratio officiis postulant.\r\n"], ["created_at", Fri, 06 Mar 2015 22:42:01 UTC +00:00], ["first_name", "Adam"], ["last_name", "West"], ["title", "Batman"], ["updated_at", Fri, 06 Mar 2015 22:42:01 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/lawyers/3
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/lawyers/3" for 127.0.0.1 at 2015-03-06 16:42:01 -0600
+Processing by LawyersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mLawyer Load (0.1ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered lawyers/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 16:42:01 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 16:42:01 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 16:42:01 -0600
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 16:42:04 -0600
+Processing by LawyersController#index as HTML
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers"[0m
+  Rendered lawyers/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (8.0ms)[0m  INSERT INTO "lawyers" ("created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 06 Mar 2015 22:52:48 UTC +00:00], ["first_name", "Pamela"], ["last_name", "Taylor"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 22:52:48 UTC +00:00]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by LawyersController#index as HTML
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers"[0m
+  Rendered lawyers/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 16:52:52 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFirms (20150306225740)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "firms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150306225740"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLawyerIdToFirms (20150306230213)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "firms" ADD "lawyer_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150306230213"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.9ms)[0m  INSERT INTO "firms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 06 Mar 2015 23:15:56 UTC +00:00], ["name", "Jones Day"], ["updated_at", Fri, 06 Mar 2015 23:15:56 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "firms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 06 Mar 2015 23:16:03 UTC +00:00], ["name", "Kirkland & Ellis"], ["updated_at", Fri, 06 Mar 2015 23:16:03 UTC +00:00]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["comments", "focuses on antitrust investigations and enforcement actions"], ["created_at", Fri, 06 Mar 2015 23:16:09 UTC +00:00], ["first_name", "Pamela"], ["last_name", "Taylor"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 23:16:09 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["comments", "is a defense attorney specialising in antitrust."], ["created_at", Fri, 06 Mar 2015 23:16:14 UTC +00:00], ["first_name", "Paula"], ["last_name", "Render"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 23:16:14 UTC +00:00]]
+  [1m[35m (8.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["comments", "JD 2003"], ["created_at", Fri, 06 Mar 2015 23:16:40 UTC +00:00], ["first_name", "Kevin"], ["last_name", "Fitzgerald"], ["title", "Associate"], ["updated_at", Fri, 06 Mar 2015 23:16:40 UTC +00:00]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lawyers" ("created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 06 Mar 2015 23:16:47 UTC +00:00], ["first_name", "Daniel"], ["last_name", "Laytin"], ["title", "General antitrust litigation (http://bit.ly/1BIwT8k)"], ["updated_at", Fri, 06 Mar 2015 23:16:47 UTC +00:00]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lawyers" ("created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 06 Mar 2015 23:16:52 UTC +00:00], ["first_name", "Barack"], ["last_name", "Echols"], ["title", "Class action defense, bankruptcy-related litigation, arbitration and responding to government investigations into claims of anticompetitive practices and consumer fraud (http://bit.ly/1w4ep1h)"], ["updated_at", Fri, 06 Mar 2015 23:16:52 UTC +00:00]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lawyers" ("created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Fri, 06 Mar 2015 23:16:56 UTC +00:00], ["first_name", "Kate"], ["last_name", "Wheaton Warner"], ["title", "On the civil antitrust side, she defends corporations in class actions alleging price fixing. Also, product liability and bankruptcy matters. (http://bit.ly/1iMgZA8)"], ["updated_at", Fri, 06 Mar 2015 23:16:56 UTC +00:00]]
+  [1m[35m (2.0ms)[0m  commit transaction
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by LawyersController#index as HTML
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers"[0m
+  Rendered lawyers/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 35ms (Views: 27.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:04 -0600
+
+
+Started DELETE "/lawyers/10" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+Processing by LawyersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "id"=>"10"}
+  [1m[35mLawyer Load (0.4ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", "10"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "lawyers" WHERE "lawyers"."id" = ?  [["id", 10]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/lawyers
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.4ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:29 -0600
+
+
+Started DELETE "/lawyers/9" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+Processing by LawyersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "id"=>"9"}
+  [1m[36mLawyer Load (0.1ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", "9"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "lawyers" WHERE "lawyers"."id" = ?[0m  [["id", 9]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/lawyers
+Completed 302 Found in 6ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+Processing by LawyersController#index as HTML
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers"[0m
+  Rendered lawyers/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:33 -0600
+
+
+Started DELETE "/lawyers/8" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+Processing by LawyersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "id"=>"8"}
+  [1m[35mLawyer Load (0.3ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", "8"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "lawyers" WHERE "lawyers"."id" = ?  [["id", 8]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/lawyers
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.3ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:17:41 -0600
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["comments", "General antitrust litigation (http://bit.ly/1BIwT8k)"], ["created_at", Fri, 06 Mar 2015 23:19:19 UTC +00:00], ["first_name", "Daniel"], ["last_name", "Laytin"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 23:19:19 UTC +00:00]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["comments", "Class action defense, bankruptcy-related litigation, arbitration and responding to government investigations into claims of anticompetitive practices and consumer fraud (http://bit.ly/1w4ep1h)"], ["created_at", Fri, 06 Mar 2015 23:19:24 UTC +00:00], ["first_name", "Barack"], ["last_name", "Echols"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 23:19:24 UTC +00:00]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lawyers" ("comments", "created_at", "first_name", "last_name", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["comments", "On the civil antitrust side, she defends corporations in class actions alleging price fixing. Also, product liability and bankruptcy matters. (http://bit.ly/1iMgZA8)"], ["created_at", Fri, 06 Mar 2015 23:19:28 UTC +00:00], ["first_name", "Kate"], ["last_name", "Wheaton Warner"], ["title", "Partner"], ["updated_at", Fri, 06 Mar 2015 23:19:28 UTC +00:00]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+Processing by LawyersController#index as HTML
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers"[0m
+  Rendered lawyers/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:33 -0600
+
+
+Started DELETE "/lawyers/4" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+Processing by LawyersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "id"=>"4"}
+  [1m[35mLawyer Load (0.1ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", "4"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "lawyers" WHERE "lawyers"."id" = ?  [["id", 4]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/lawyers
+Completed 302 Found in 4ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.3ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:40 -0600
+
+
+Started DELETE "/lawyers/2" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+Processing by LawyersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oTTIMWUo1u+hhmXgszYALSGiFpvIqdBQ6OMGhDkqGiE=", "id"=>"2"}
+  [1m[36mLawyer Load (0.1ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "lawyers" WHERE "lawyers"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/lawyers
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+Processing by LawyersController#index as HTML
+  [1m[36mLawyer Load (0.3ms)[0m  [1mSELECT "lawyers".* FROM "lawyers"[0m
+  Rendered lawyers/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:19:50 -0600
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:24:42 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (13.4ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (undefined method `firm' for #<Lawyer:0x007ffa43ae83d8>):
+    21:         <td><%= lawyer.last_name %></td>
+    22:         <td><%= lawyer.title %></td>
+    23:         <td><%= lawyer.comments %></td>
+    24:         <td><%= lawyer.firm %></td>
+    25:         <td><%= link_to 'Show', lawyer %></td>
+    26:         <td><%= link_to 'Edit', edit_lawyer_path(lawyer) %></td>
+    27:         <td><%= link_to 'Destroy', lawyer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/lawyers/index.html.erb:24:in `block in _app_views_lawyers_index_html_erb___4347772577247796270_70356442548420'
+  app/views/lawyers/index.html.erb:18:in `_app_views_lawyers_index_html_erb___4347772577247796270_70356442548420'
+
+
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.9ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:26:29 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined method `firm' for #<Lawyer:0x007f9549516ef0>):
+    21:         <td><%= lawyer.last_name %></td>
+    22:         <td><%= lawyer.title %></td>
+    23:         <td><%= lawyer.comments %></td>
+    24:         <td><%= lawyer.firm %></td>
+    25:         <td><%= link_to 'Show', lawyer %></td>
+    26:         <td><%= link_to 'Edit', edit_lawyer_path(lawyer) %></td>
+    27:         <td><%= link_to 'Destroy', lawyer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/lawyers/index.html.erb:24:in `block in _app_views_lawyers_index_html_erb___1816105580981401775_70139578613100'
+  app/views/lawyers/index.html.erb:18:in `_app_views_lawyers_index_html_erb___1816105580981401775_70139578613100'
+
+
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddLawyerIdToFirms (20150306230213)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  CREATE TEMPORARY TABLE "afirms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "lawyer_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "firms"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afirms" ("id","name","created_at","updated_at","lawyer_id") VALUES (1, 'Jones Day', '2015-03-06 23:15:56.202030', '2015-03-06 23:15:56.202030', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afirms" ("id","name","created_at","updated_at","lawyer_id") VALUES (2, 'Kirkland & Ellis', '2015-03-06 23:16:03.781982', '2015-03-06 23:16:03.781982', NULL)[0m
+  [1m[35m (1.1ms)[0m  DROP TABLE "firms"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "firms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "afirms"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "firms" ("id","name","created_at","updated_at") VALUES (1, 'Jones Day', '2015-03-06 23:15:56.202030', '2015-03-06 23:15:56.202030')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "firms" ("id","name","created_at","updated_at") VALUES (2, 'Kirkland & Ellis', '2015-03-06 23:16:03.781982', '2015-03-06 23:16:03.781982')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "afirms"[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20150306230213'
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLawyerIdToFirms (20150306230213)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "firms" ADD "lawyer_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150306230213"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddFirmIdToLawyers (20150306233829)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "lawyers" ADD "firm_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150306233829"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:39:35 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (12.2ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined method `firm' for #<Lawyer:0x007fbd29350e88>):
+    21:         <td><%= lawyer.last_name %></td>
+    22:         <td><%= lawyer.title %></td>
+    23:         <td><%= lawyer.comments %></td>
+    24:         <td><%= lawyer.firm %></td>
+    25:         <td><%= link_to 'Show', lawyer %></td>
+    26:         <td><%= link_to 'Edit', edit_lawyer_path(lawyer) %></td>
+    27:         <td><%= link_to 'Destroy', lawyer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/lawyers/index.html.erb:24:in `block in _app_views_lawyers_index_html_erb___3733986995928906053_70225208623620'
+  app/views/lawyers/index.html.erb:18:in `_app_views_lawyers_index_html_erb___3733986995928906053_70225208623620'
+
+
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.1ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (2.2ms)[0m  [1mCREATE TEMPORARY TABLE "afirms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "lawyer_id" integer) [0m
+  [1m[35m (0.6ms)[0m  SELECT * FROM "firms"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "afirms" ("id","name","created_at","updated_at","lawyer_id") VALUES (1, 'Jones Day', '2015-03-06 23:15:56.202030', '2015-03-06 23:15:56.202030', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "afirms" ("id","name","created_at","updated_at","lawyer_id") VALUES (2, 'Kirkland & Ellis', '2015-03-06 23:16:03.781982', '2015-03-06 23:16:03.781982', NULL)
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE "firms"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "firms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "afirms"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "firms" ("id","name","created_at","updated_at") VALUES (1, 'Jones Day', '2015-03-06 23:15:56.202030', '2015-03-06 23:15:56.202030')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "firms" ("id","name","created_at","updated_at") VALUES (2, 'Kirkland & Ellis', '2015-03-06 23:16:03.781982', '2015-03-06 23:16:03.781982')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "afirms"
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20150306230213'[0m
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:43:23 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.6ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (undefined method `firm' for #<Lawyer:0x007f87425ebef8>):
+    21:         <td><%= lawyer.last_name %></td>
+    22:         <td><%= lawyer.title %></td>
+    23:         <td><%= lawyer.comments %></td>
+    24:         <td><%= lawyer.firm %></td>
+    25:         <td><%= link_to 'Show', lawyer %></td>
+    26:         <td><%= link_to 'Edit', edit_lawyer_path(lawyer) %></td>
+    27:         <td><%= link_to 'Destroy', lawyer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/lawyers/index.html.erb:24:in `block in _app_views_lawyers_index_html_erb___4251187794611289057_70109455571680'
+  app/views/lawyers/index.html.erb:18:in `_app_views_lawyers_index_html_erb___4251187794611289057_70109455571680'
+
+
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/pflorian/.rvm/gems/ruby-2.1.0@global/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.3ms)
+
+
+Started GET "/lawyers" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LawyersController#index as HTML
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  Rendered lawyers/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 93ms (Views: 72.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+
+
+Started GET "/assets/lawyers.css?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+
+
+Started GET "/assets/lawyers.js?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-06 17:43:58 -0600
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" ORDER BY "lawyers"."id" ASC LIMIT 1[0m
+  [1m[35mLawyer Load (0.4ms)[0m  SELECT "lawyers".* FROM "lawyers"
+  [1m[36mLawyer Load (4.8ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mFirm Load (0.6ms)[0m  [1mSELECT "firms".* FROM "firms" ORDER BY "firms"."id" DESC LIMIT 1[0m
+  [1m[35mLawyer Load (0.3ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mLawyer Load (0.3ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mFirm Load (0.3ms)[0m  SELECT "firms".* FROM "firms" ORDER BY "firms"."id" DESC LIMIT 1
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mLawyer Load (0.3ms)[0m  SELECT "lawyers".* FROM "lawyers" ORDER BY "lawyers"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO "firms" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 07 Mar 2015 00:02:51 UTC +00:00], ["name", "Addisons"], ["updated_at", Sat, 07 Mar 2015 00:02:51 UTC +00:00]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mFirm Load (0.3ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mFirm Load (0.2ms)[0m  [1mSELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFirm Load (0.4ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLawyer Load (0.3ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mFirm Load (0.2ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLawyer Load (0.1ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "lawyers" SET "firm_id" = ?, "updated_at" = ? WHERE "lawyers"."id" = 5[0m  [["firm_id", 1], ["updated_at", Sat, 07 Mar 2015 00:09:51 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."firm_id" = ?[0m  [["firm_id", 1]]
+  [1m[35mFirm Load (0.2ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLawyer Load (0.1ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "lawyers" SET "firm_id" = ?, "updated_at" = ? WHERE "lawyers"."id" = 6[0m  [["firm_id", 1], ["updated_at", Sat, 07 Mar 2015 00:10:02 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."firm_id" = ?[0m  [["firm_id", 1]]
+  [1m[35mFirm Load (0.2ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLawyer Load (0.1ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "lawyers" SET "firm_id" = ?, "updated_at" = ? WHERE "lawyers"."id" = 7[0m  [["firm_id", 1], ["updated_at", Sat, 07 Mar 2015 00:10:08 UTC +00:00]]
+  [1m[35m (7.4ms)[0m  commit transaction
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."firm_id" = ?[0m  [["firm_id", 1]]
+  [1m[35mFirm Load (0.3ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mLawyer Load (0.1ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mFirm Load (0.2ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "lawyers" SET "firm_id" = ?, "updated_at" = ? WHERE "lawyers"."id" = 11[0m  [["firm_id", 2], ["updated_at", Sat, 07 Mar 2015 00:10:29 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."firm_id" = ?[0m  [["firm_id", 2]]
+  [1m[35mFirm Load (0.2ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "lawyers" SET "firm_id" = ?, "updated_at" = ? WHERE "lawyers"."id" = 12[0m  [["firm_id", 2], ["updated_at", Sat, 07 Mar 2015 00:10:31 UTC +00:00]]
+  [1m[35m (5.7ms)[0m  commit transaction
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."firm_id" = ?[0m  [["firm_id", 2]]
+  [1m[35mFirm Load (0.2ms)[0m  SELECT "firms".* FROM "firms" WHERE "firms"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "lawyers" SET "firm_id" = ?, "updated_at" = ? WHERE "lawyers"."id" = 13[0m  [["firm_id", 2], ["updated_at", Sat, 07 Mar 2015 00:10:34 UTC +00:00]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."firm_id" = ?[0m  [["firm_id", 2]]
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mLawyer Load (0.2ms)[0m  [1mSELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mLawyer Load (0.2ms)[0m  SELECT "lawyers".* FROM "lawyers" WHERE "lawyers"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mFirm Load (0.3ms)[0m  [1mSELECT "firms".* FROM "firms" WHERE "firms"."id" = ? ORDER BY "firms"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePractices (20150307002805)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "practices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150307002805"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLawyersPractices (20150307003313)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "lawyers_practices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150307003313"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.3ms)[0m  [1mINSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Antitrust"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Mergers"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Cartel"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Damages"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "IP"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Health"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Oil & Gas"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Automotive"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "practices" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00], ["name", "Tech"], ["updated_at", Sat, 07 Mar 2015 00:42:36 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction

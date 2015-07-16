@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @lawyer.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @lawyer.last_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lawyer.title %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @lawyer.comments %>
+</p>
+
+<%= link_to 'Edit', edit_lawyer_path(@lawyer) %> |
+<%= link_to 'Back', lawyers_path %>
